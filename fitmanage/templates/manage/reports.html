@@ -1,0 +1,58 @@
+{% extends "manage/layoutmanage.html" %}
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url('https://images.pexels.com/photos/949129/pexels-photo-949129.jpeg?auto=compress&cs=tinysrgb&w=1200');
+        background-size: cover;
+    }
+</style>
+
+
+<h1 class="title">Weekly Reports</h1>
+
+<div class="container-report">
+    <form class="report-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="generate-report-button">Generate Report</button>
+    </form>
+</div>
+
+
+
+<div class="report-container">
+    <table class="report-table">
+        <thead>
+            <tr>
+                <th class="T">Title</th>
+                <th class="C">Content</th>
+                <th class="R">Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td class="T">{{ report.title }}</td>
+                <td class="C">{{ report.content }}</td>
+                <td class="R">{{ report.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <button class="convert-excel-button" onclick="redirectToExcel()">Convert to Excel</button>
+    
+</div>
+
+<br>
+<script>
+    function redirectToExcel() {
+        var url = "{% url 'convertToExcel' %}";
+        window.location.href = url;
+    }
+</script>
+
+
+{% endblock %}

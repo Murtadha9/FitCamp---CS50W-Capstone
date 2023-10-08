@@ -1,0 +1,92 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FitForm{% endblock %}</title>
+    <link href="{% static 'form/styles.css' %}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/d799da62db.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
+</head>
+<body>
+
+
+    <nav class="navbar">
+
+        <h1 class="icon" style="color: black;"><i class="fa-solid fa-dumbbell"> </i> FitForm</h1>
+        <div>
+            <ul class="nav-list">
+                {% if user.is_authenticated %}
+                
+                <li >
+                    <a href="{% url 'homeform' %}">Home</a>
+                </li>
+                <li >
+                    <a href="{% url 'body' %}">BodyBuilding</a>
+                </li>
+                
+                <li >
+                    <a  href="{% url 'fitness' %}">Fitness</a>
+                </li>
+                <li >
+                    <a  href="{% url 'help' %}">Help</a>
+                </li>
+                <li class="logout">
+                    <a  href="{% url 'logoutform' %}">Log out</a>
+                </li>
+                {% else %}
+                <li >
+                    <a  href="{% url 'loginform' %}">Log in </a>
+                </li>
+                <li >
+                    <a  href="{% url 'registerform' %}">Register</a>
+                </li>
+                {% endif %}    
+
+            </ul>
+        </div>
+    </nav>
+    
+
+
+
+    
+    <div class="main1" >
+        <div class="main2" >
+            
+            {% block body %}
+    
+            {% endblock %}
+        </div>
+    </div>
+    
+
+    <footer>
+
+        <p>&copy; 2023 FitCamp, All rights reserved.</p>
+
+    </footer>
+
+
+
+    <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+    let currentUrl = window.location.pathname;
+    let links = document.querySelectorAll(".nav-list a");
+
+    for (let link of links) {
+        if (link.getAttribute("href") === currentUrl) {
+            link.classList.add("active");
+        }
+    }
+});
+    </script>
+</body>
+</html>

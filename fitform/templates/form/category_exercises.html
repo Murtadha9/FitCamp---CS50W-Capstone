@@ -1,0 +1,29 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url('https://t3.ftcdn.net/jpg/00/91/42/20/360_F_91422093_LW28s6Yk3urgDbDKf2hibPBKmn101b7C.jpg');
+        background-size: cover;
+    }
+</style>
+
+<h1 class="category-title">{{ category.name }} </h1>
+
+    <ul class="exercise-list">
+        {% for exercise in exercises %}
+            <li class="exercise-item">
+                <h2 class="exercise-name">{{ exercise.name }}</h2>
+                <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}" class="exercise-image">
+                <div  class="exercise-description"><p>{{ exercise.description|linebreaks|safe }}</p></div>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'body' %}" class="back-link">Back to Bodybuilding Page</a>
+    <br>
+
+
+
+{% endblock %}

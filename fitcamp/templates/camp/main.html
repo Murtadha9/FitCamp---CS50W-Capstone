@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitCamp</title>
+    <link rel="stylesheet" href="{% static 'camp/styles.css' %}" >
+</head>
+<body>
+    <h1>FitCamp</h1>
+    <div>
+        <a href="{% url 'loginmanage' %}" target="_blank"><h2>FitManage</h2><p>Gym Management</p></a>
+        <a href="{% url 'loginform' %}" target="_blank" ><h2>FitForm</h2><p>How to WorkOut</p></a>
+        <a href="{% url 'loginfood' %}" target="_blank"><h2>FitFood</h2><p>Healthy Recipe</p></a>
+    </div>
+
+</body>
+</html>

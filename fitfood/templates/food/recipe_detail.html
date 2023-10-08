@@ -1,0 +1,76 @@
+{% extends "food/layoutfood.html" %}
+
+{% block body %}
+
+
+<div class="recipe-details">
+    <img src="{{ recipe.image.url }}" alt="image" width="600">
+    <h2>{{ recipe.title }}</h2>
+
+    <h2>Nutrition Information</h2>
+    <ul class="nutrition-list">
+        <br>
+        <li>Calories : {{ nutritions.calories }}</li>
+        <li>Protein : {{ nutritions.protein }} g </li>
+        <li>Carbohydrates : {{ nutritions.carbs }} g </li>
+        <li>Fat : {{ nutritions.fat }} g</li>
+        <br>
+    </ul>
+
+    <h2 class="Ingredients">Ingredients:</h2>
+    <ul class="ingredients-list">
+        {% for ingredient in recipe.ingredients.all %}
+            <br>
+            <li>{{ ingredient.name }}</li>
+            
+        {% endfor %}
+    </ul>
+
+    <h2>Instructions:</h2>
+    <div class="instructions"><p >{{ recipe.instructions|linebreaks|safe }}</p></div>
+
+
+
+    <hr>
+    <h2>Comments</h2>
+    <ul class="comments-list">
+        {% for comment in comments %}
+            <li>
+                <b>{{ comment.user.username }}:- </b>
+                <br>
+                {{ comment.text }}
+                
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h3 class="comment-text">Add a Comment</h3>
+    <form method="post" class="comment-form">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="comment-button">Submit Comment</button>
+    </form>
+</div>
+
+</div>
+<div class="container-Home">
+    <a class="link-Home" href="{{request.META.HTTP_REFERER}}">Back</a>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const commentForm = document.querySelector(".comment-form");
+
+    commentForm.addEventListener("submit", function (event) {
+        const confirmation = confirm("Are you sure you want to submit this comment?");
+        
+        if (!confirmation) {
+            event.preventDefault();
+        }
+    });
+});
+</script>
+
+{% endblock %}

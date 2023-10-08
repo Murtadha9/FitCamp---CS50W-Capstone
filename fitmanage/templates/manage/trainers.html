@@ -1,0 +1,54 @@
+{% extends "manage/layoutmanage.html" %}
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url('https://images.pexels.com/photos/2261477/pexels-photo-2261477.jpeg?auto=compress&cs=tinysrgb&w=1200');
+        background-size: cover;
+    }
+</style>
+
+
+<h1  class="title">Trainers</h1>
+
+<div class="trainers-container">
+    {% for trainer in trainers %}
+    <div class="trainer-card">
+        <div class="trainer-image">
+            <img src="{{ trainer.photo.url }}" alt="Trainer Image" width="200">
+        </div>
+        <div class="trainer-info">
+            <div class="trainer-name">{{ trainer.name }}</div>
+            <div class="trainer-specialist">{{ trainer.specialist }}</div>
+            <div class="trainer-stars">
+                <span class="star-rating">{{ trainer.stars }}</span> Stars
+            </div>
+            
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const trainerCards = document.querySelectorAll(".trainer-card");
+
+    trainerCards.forEach((card) => {
+        const starsContainer = card.querySelector(".trainer-stars");
+        const starsCount = parseInt(starsContainer.dataset.stars);
+
+        for (let i = 0; i < starsCount; i++) {
+            const star = document.createElement("span");
+            star.className = "star-rating";
+            star.innerHTML = "&#9733;"; // Unicode star character
+            starsContainer.appendChild(star);
+        }
+    });
+});
+</script>
+
+{% endblock %}

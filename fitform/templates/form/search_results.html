@@ -1,0 +1,28 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+<style>
+    body{
+        background-image: url('https://e0.pxfuel.com/wallpapers/521/132/desktop-wallpaper-fitness-and-background-gym-black.jpg');
+        background-size: cover;
+    }
+</style>
+
+<h1 class="search-results-title">Search Results for "{{ query }}"</h1>
+
+    <ul class="exercise-list">
+        {% for exercise in exercises %}
+            <li class="exercise-item">
+                <h2 class="exercise-name">{{ exercise.name }}</h2>
+                <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}" class="exercise-image">
+                <p class="exercise-description">{{ exercise.description }}</p>
+            </li>
+        {% empty %}
+            <p class="no-results-message">No exercises found for "{{ query }}".</p>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'homeform' %}" class="back-link">Back to Home</a>
+    <br>
+
+{% endblock %}

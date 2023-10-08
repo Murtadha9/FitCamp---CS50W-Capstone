@@ -1,0 +1,70 @@
+{% extends "manage/layoutmanage.html" %}
+
+{% block body %}
+
+
+<h1 id="manage"> Stay <span>Manage</span> Stay a <span>Live</span></h1>
+
+<div class="falling-shapes-container"></div>
+<style>
+    body{
+        background: black;
+    }
+</style>
+
+<script>
+    function createRandomShape() {
+    const shapes = ['circle', 'square', 'triangle'];
+    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+
+    const shapeElement = document.createElement('div');
+    shapeElement.className = `falling-shape ${randomShape}`;
+    
+    // Generate a random color
+    const randomColor = getRandomColor();
+    shapeElement.style.backgroundColor = randomColor;
+    
+    // Set a random initial position and animation duration
+    const initialPosition = `${Math.random() * 100}%`;
+    const animationDuration = `${Math.random() * 5 + 2}s`; // Random duration between 2 and 7 seconds
+
+    shapeElement.style.left = initialPosition;
+    shapeElement.style.animationDuration = animationDuration;
+
+    return shapeElement;
+}
+
+// Function to generate a random color
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+
+
+
+// Function to start the animation
+function startFallingShapes() {
+    const container = document.querySelector('.falling-shapes-container');
+
+    setInterval(() => {
+        const shape = createRandomShape();
+        container.appendChild(shape);
+
+        // Remove the shape after it completes the animation
+        shape.addEventListener('animationend', () => {
+            container.removeChild(shape);
+        });
+    }, 1000); // Add a new shape every 1 second
+}
+
+// Start the falling shapes animation
+startFallingShapes();
+</script>
+
+{% endblock %}

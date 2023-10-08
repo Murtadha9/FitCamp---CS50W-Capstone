@@ -1,0 +1,70 @@
+{% extends "food/layoutfood.html" %}
+
+{% block body %}
+
+<h1 class="healthy">Stay <span>Healthy</span> Stay a <span>Live</span></h1>
+
+<div class="falling-shapes-container"></div>
+
+
+
+
+<script>
+    function createRandomShape() {
+    const shapes = ['circle', 'square', 'triangle'];
+    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+
+    const shapeElement = document.createElement('div');
+    shapeElement.className = `falling-shape ${randomShape}`;
+    
+
+    const randomColor = getRandomColor();
+    shapeElement.style.backgroundColor = randomColor;
+    
+
+    const initialPosition = `${Math.random() * 100}%`;
+    const animationDuration = `${Math.random() * 5 + 2}s`; 
+
+    shapeElement.style.left = initialPosition;
+    shapeElement.style.animationDuration = animationDuration;
+
+    return shapeElement;
+}
+
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+// Function to start the animation
+function startFallingShapes() {
+    const container = document.querySelector('.falling-shapes-container');
+
+    setInterval(() => {
+        const shape = createRandomShape();
+        container.appendChild(shape);
+
+        
+        shape.addEventListener('animationend', () => {
+            container.removeChild(shape);
+        });
+    }, 1000); 
+}
+
+
+startFallingShapes();
+
+
+
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "manage/layoutmanage.html" %}
+
+{% block body %}
+
+
+<!--
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" >Add Player</button>
+</form>
+-->
+
+
+<style>
+    body{
+        background-image: url('https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg?auto=compress&cs=tinysrgb&w=1200');
+        background-size: cover;
+    }
+</style>
+
+
+<h1 class="title">Add Member</h1>
+
+
+    <form class="member-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="img">Image:</label>
+            <input  type="file" name="img" class="form-control"><br>
+        </div>  
+        
+        
+
+        <div id="img-preview-container">
+            <img id="img-preview" src="" alt="Image Preview" width="80">
+        </div>
+
+        
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" required class="form-control"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" required class="form-control"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" name="date_of_birth" required class="form-control"><br>
+        </div>
+
+
+        <div class="form-group">
+            <label for="start">Start Date:</label>
+            <input type="date" name="start" required class="form-control"><br>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="end">End Date:</label>
+            <input type="date" name="end" required class="form-control"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" name="phone_number" required class="form-control"><br>
+        </div>
+
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" name="address" required class="form-control"><br>
+        </div>
+
+
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select name="type" class="form-control">
+                <option value="">Select Type</option>
+                {% for type in types %}
+                    <option value="{{ type.id }}">{{ type.name }}</option>
+                {% endfor %}
+            </select><br>
+        </div>
+
+
+        <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="text" name="amount" required class="form-control"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="trainers">Trainer:</label>
+            <select name="trainers" class="form-control">
+                <option value="">Select Trainer</option>
+                {% for trainer in trainers %}
+                    <option value="{{ trainer.id }}">{{ trainer.name }}</option>
+                {% endfor %}
+            </select><br>
+        </div>
+
+
+        <div class="form-group">
+            <label for="payment_status">Payment Status:</label>
+            <input type="checkbox" name="payment_status" class="form-control"><br>
+        </div>
+
+        <input type="submit" value="Add Member" class="btn-submit">
+    </form>
+
+<a href="{% url 'displayMember' %}" class="back-link">Go to Members</a>
+
+<script>
+    document.querySelector('input[type="file"]').addEventListener('change', function () {
+    const preview = document.querySelector('#img-preview');
+    const file = this.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function () {
+            preview.src = reader.result;
+        });
+
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+
+{% endblock %}

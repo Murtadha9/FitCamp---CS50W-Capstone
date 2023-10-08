@@ -1,0 +1,33 @@
+{% extends "food/layoutfood.html" %}
+
+{% block body %}
+
+
+<style>
+    body{
+        background-image: url('https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466_1280.jpg');
+        background-size: cover;
+    }
+</style>
+
+<h1 class="heading">Login</h1>
+
+<form action="{% url 'loginfood' %}" method="post" class="form">
+    {% csrf_token %}
+    <div class="form-group">
+        <input autofocus  type="text" name="username" placeholder="Username" class="form-control">
+    </div>
+    <div class="form-group">
+        <input  type="password" name="password" placeholder="Password" class="form-control">
+    </div>
+    <input  type="submit" value="Login" class="btn">
+</form>
+
+<p class="link">Don't have an account? <a href="{% url 'registerfood' %}">Register here.</a></p>
+
+
+
+
+
+
+{% endblock %}

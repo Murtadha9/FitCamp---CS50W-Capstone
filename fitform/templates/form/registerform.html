@@ -1,0 +1,33 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url('https://t3.ftcdn.net/jpg/00/91/42/20/360_F_91422093_LW28s6Yk3urgDbDKf2hibPBKmn101b7C.jpg');
+        background-size: cover;
+    }
+</style>
+
+<h2 class="heading">Register</h2>
+
+<form action="{% url 'registerform' %}" method="post" class="form">
+    {% csrf_token %}
+    <div class="form-group">
+        <input  autofocus type="text" name="username" placeholder="Username" class="form-control">
+    </div>
+    <div class="form-group">
+        <input  type="email" name="email" placeholder="Email Address" class="form-control">
+    </div>
+    <div class="form-group">
+        <input  type="password" name="password" placeholder="Password" class="form-control">
+    </div>
+    <div class="form-group">
+        <input  type="password" name="confirmation" placeholder="Confirm Password" class="form-control">
+    </div>
+    <input  type="submit" value="Register" class="btn">
+</form>
+
+<p class="link">Already have an account? <a href="{% url 'loginform' %}">Log In here
+
+{% endblock %}

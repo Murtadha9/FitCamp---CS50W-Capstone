@@ -1,0 +1,24 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+
+
+<style>
+    body{
+        background-image: url('https://i.pinimg.com/originals/1d/d4/35/1dd435e5abbd7e54ee79e67ce4eeef52.png');
+        background-size: cover;
+    }
+</style>
+
+
+<h1 class="fitness-item-title">{{ fitness_item.title }}</h1>
+
+    <img src="{{ fitness_item.image.url }}" alt="{{ fitness_item.title }}" class="fitness-item-image">
+    
+    <div class="fitness-item-description"><p>{{ fitness_item.description|linebreaks|safe  }}</p></div>
+
+    <a href="{% url 'fitness' %}" class="back-link">Back to Fitness Page</a>
+
+<br>
+
+{% endblock %}

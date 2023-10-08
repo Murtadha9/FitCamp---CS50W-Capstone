@@ -1,0 +1,30 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url('https://e0.pxfuel.com/wallpapers/521/132/desktop-wallpaper-fitness-and-background-gym-black.jpg');
+        background-size: cover;
+    }
+
+</style>
+
+<h1>Contact Us</h1>
+<div class="form-help">
+    <form method="post" class="formHelp">
+        {% csrf_token %}
+        <label for="subject">Subject:</label>
+        <input class="help" type="text" id="subject" name="subject" required>
+        
+        <label for="message">Message:</label>
+        <textarea class="help" id="message" name="message" rows="4" required></textarea>
+        
+        <button class="btnhelp" type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

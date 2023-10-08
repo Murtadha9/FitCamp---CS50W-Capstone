@@ -1,0 +1,33 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+
+
+<style>
+    body{
+        background-image: url('https://cdn.shopify.com/s/files/1/1633/7705/files/workout_splits_5_days_480x480.jpg?v=1623579893');
+        background-size: cover;
+    }
+</style>
+
+<h1 class="search-results-title">Search Results for "{{ query }}"</h1>
+
+<ul class="fitness-list">
+    {% for fitness_item in fitness_items %}
+        <li class="fitness-item">
+            <a href="{% url 'fitness_details' fitness_item.id %}" class="fitness-link">
+                <img src="{{ fitness_item.image.url }}" alt="{{ fitness_item.title }}" class="fitness-image">
+                <span class="fitness-name">{{ fitness_item.title }}</span>
+            </a>
+        </li>
+    {% empty %}
+        <p class="no-results-message">No fitness items found for "{{ query }}".</p>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'fitness' %}" class="back-link">Back to Fitness Page</a>
+
+<br>
+
+
+{% endblock %}

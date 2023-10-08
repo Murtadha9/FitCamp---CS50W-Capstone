@@ -1,0 +1,51 @@
+{% extends "form/layoutform.html" %}
+
+{% block body %}
+
+<style>
+    body{
+        background-image: url('https://e0.pxfuel.com/wallpapers/521/132/desktop-wallpaper-fitness-and-background-gym-black.jpg');
+        background-size: cover;
+    }
+</style>
+
+<h1>Welcome to How to Workout!</h1>
+
+<hr>
+
+
+<h1 class="home">BodyBuilding</h1>
+
+<ul class="category-list">
+    {% for category in categories %}
+        <li>
+            <a href="{% url 'category_exercises' category.id %}" class="category-link">
+                <img src="{{ category.image.url }}" alt="{{ category.name }}" class="category-image">
+                <span class="category-name">{{ category.name }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h1 class="home">Fitness</h1>
+
+<ul class="fitness-list">
+    {% for fitness_item in fitness_items %}
+        <li class="fitness-item">
+            <a href="{% url 'fitness_details' fitness_item.id %}" class="fitness-link">
+                <img src="{{ fitness_item.image.url }}" alt="{{ fitness_item.title }}" class="fitness-image">
+                <span class="fitness-name">{{ fitness_item.title }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+<hr>
+
+{% endblock %}

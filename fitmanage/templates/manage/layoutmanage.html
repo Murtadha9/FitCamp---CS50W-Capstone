@@ -1,0 +1,94 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FitManage{% endblock %}</title>
+    <link href="{% static 'manage/styles.css' %}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/d799da62db.js" crossorigin="anonymous"></script>
+    
+
+</head>
+<body>
+
+
+    <nav class="navbar">
+
+        <h1 class="icon"><i class="fa-solid fa-people-roof"></i> FitManage</h1>
+        <div>
+            <ul class="nav-list">
+                {% if user.is_authenticated %}
+                <li >
+                    <a href="{% url 'membership' %}">Type of MemberShip</a>
+                </li>
+                <li >
+                    <a  href="{% url 'addMember' %}">New Member</a>
+                </li>
+                
+                <li >
+                    <a  href="{% url 'displayMember' %}">All Members</a>
+                </li>
+                <li >
+                    <a  href="{% url 'trainers' %}">Trainers</a>
+                </li>
+                <li >
+                    <a  href="{% url 'report' %}">Reports</a>
+                </li>
+                
+                <li class="logout">
+                    <a  href="{% url 'logoutmanage' %}">Log out</a>
+                </li>
+                {% else %}
+                <li >
+                    <a  href="{% url 'loginmanage' %}">Log in </a>
+                </li>
+                <li >
+                    <a  href="{% url 'registermanage' %}">Register</a>
+                </li>
+                {% endif %}    
+
+            </ul>
+        </div>
+    </nav>
+    
+
+
+
+<div class="main1" >
+    <div class="main2" >
+        
+        {% block body %}
+
+        {% endblock %}
+    </div>
+</div>
+
+    
+    
+    
+    <footer>
+
+        <p>&copy; 2023 FitCamp, All rights reserved.</p>
+
+    </footer>
+
+
+    <script>
+        // JavaScript to highlight the active link
+document.addEventListener("DOMContentLoaded", function () {
+    let currentUrl = window.location.pathname;
+    let links = document.querySelectorAll(".nav-list a");
+
+    for (let link of links) {
+        if (link.getAttribute("href") === currentUrl) {
+            link.classList.add("active");
+        }
+    }
+});
+    </script>
+</body>
+</html>

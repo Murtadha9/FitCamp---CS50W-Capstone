@@ -1,0 +1,47 @@
+{% extends "food/layoutfood.html" %}
+
+{% block body %}
+
+
+
+
+<h1 class="sub">Low Carbs</h1>
+
+<div class="main">
+{% for item in recipes %}
+<div class="recipe-card">
+    <br>
+    <div class="recipe-image">
+        <img src="{{ item.image.url }}" alt="{{ item.title }}" width="200">
+    </div>
+    <div class="details">
+        <h3>{{ item.title }}</h3>
+        <h4>{{item.describe}}</h4>
+        <a href="{% url 'recipe_detail' item.id %}" class="link-g">How to make it</a>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+<div class="container-Home">
+    <a class="link-Home" href="{% url 'homefood' %}">Back to Home</a>
+</div>
+
+<script>
+const recipeImages = document.querySelectorAll('.recipe-image img');
+
+recipeImages.forEach((image) => {
+    image.addEventListener('mouseover', () => {
+        image.style.transform = 'scale(1.1)';
+        image.style.transition = 'transform 0.2s ease-in-out';
+    });
+
+    image.addEventListener('mouseout', () => {
+        image.style.transform = 'scale(1)';
+    });
+});
+</script>
+
+
+
+{% endblock %}

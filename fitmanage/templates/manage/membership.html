@@ -1,0 +1,38 @@
+{% extends "manage/layoutmanage.html" %}
+
+{% block body %}
+
+
+
+
+<style>
+    body{
+        background-image: url('https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1200');
+        background-size:cover;
+        
+    }
+</style>
+
+<h1 class="title">MemberShip</h1>
+<br>
+<div class="container-card">
+    <div class="card-grid">
+        {% for membership in memberships %}
+            <div class="card">
+                <div class="card-content">
+                    <img src="{{ membership.img }}" alt="" width="100">
+                    <p class="card-title">{{ membership.title }}</p>
+                    <p class="card-price">{{ membership.price }} $</p>
+                    <p class="card-details">{{ membership.type_details }}</p>
+                    
+                </div>
+                <a href="{% url 'addMember' %}" class="card-button">Enroll Now</a>
+            </div>
+        {% endfor %}
+        </div>
+</div>
+
+
+
+
+{% endblock %}

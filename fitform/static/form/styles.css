@@ -1,0 +1,727 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    
+    }
+
+.home{
+    text-align: left;
+    padding: 8px;
+    margin: 20px;
+}
+hr {
+    border: none; 
+    height: 2px; 
+    background-color: #82EF92; 
+    margin: 20px 0; 
+}
+
+.navbar {
+    background-color: #82EF92;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+
+.navbar h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    
+}
+
+
+.nav-list li {
+    margin-right: 10px;
+}
+
+
+.nav-list a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.nav-list .active {
+    background-color:black;
+    color: #82EF92;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: large;
+}
+
+.logout{
+    background: rgb(118, 6, 6);
+    padding: 5px;
+    border-radius: 5px;
+}
+.logout a{
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .navbar h1 {
+        margin-top: 10px; 
+    }
+
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .nav-list li {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+    }
+    .icon i{
+        margin: 10px;
+    }
+
+}
+
+/* ############# login and registor ##############*/
+
+.heading {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-left: 170px;
+    text-align: left;
+}
+
+.form {
+    max-width: 400px;
+    margin-left: 5px ;
+    margin-right: auto;
+    padding: 20px;
+    border: 1px solid #82EF92;
+    border-radius: 8px;
+    background-color: rgba(255, 253, 253, 0.2);
+}
+
+.form-group {
+    
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px ;
+    border: 1px solid #82EF92;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #82EF92;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+.btn:hover{
+    background-color: black;
+    color: #82EF92;
+    
+}
+
+.link {
+    color: white;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link a:hover {
+    color: #82EF92;
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+
+@media (max-width: 768px) {
+    .heading {
+        margin-left: 0; 
+        text-align: center; 
+    }
+    
+    .form {
+        max-width: 90%; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .form-control {
+        font-size: 14px;
+    }
+    
+    .link {
+        margin-left: 0; 
+        text-align: center; 
+    }
+
+
+
+}
+
+/* ##################### BodyBuilding ########################## */
+
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+
+.search-form {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #82EF92;
+    border-radius: 8px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #82EF92;
+    color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-button:hover{
+    background-color:black ;
+    color: #82EF92;
+}
+
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-link {
+    width: 300px;
+    height: 200px;
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    display: block;
+    color: white;
+    transition: transform 0.3s ease;
+    border: 1px solid #82EF92;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #0000008a;
+    box-shadow: 0 4px 6px rgba(255, 253, 253, 0.5);
+}
+
+.category-link:hover {
+    transform: scale(1.05);
+}
+
+.category-image {
+    width: 150px;
+    height: 100px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(255, 253, 253, 0.5);
+}
+
+.category-name {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; /* Decrease font size for smaller screens */
+    }
+    .category-list{
+        gap: 8px;
+    }
+    .search-input {
+        width: 90%; 
+        margin: 8px;
+    }
+
+    .search-button {
+        width: 90%; 
+        
+    }
+
+    .category-link {
+        width: 100%; /* Make category links full width */
+    }
+
+    .category-image {
+        width: 100px; /* Adjust image width for smaller screens */
+        height: 75px; /* Adjust image height for smaller screens */
+    }
+
+    .category-name {
+        font-size: 14px; /* Decrease font size for smaller screens */
+    }
+}
+
+/* ##################### category exercises ########################## */
+
+
+
+.category-title {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+    color:white;
+    font-weight: bold;
+}
+
+
+.exercise-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.exercise-item {
+    background-color: #00000069;
+    border: 1px solid #82EF92;
+    box-shadow: 0 4px 6px rgba(255, 253, 253, 0.5);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.exercise-item:hover {
+    transform: scale(1.05);
+}
+
+.exercise-name {
+    font-size: 24px;
+    margin-top: 0;
+    color: white;
+}
+
+.exercise-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(255, 253, 253, 0.5);
+    border-radius: 8px;
+}
+
+.exercise-description {
+    font-size: 16px;
+    color: white;
+}
+
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #82EF92;
+    transition:  0.5s ease;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    font-size: larger;
+}
+
+
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 24px; 
+        margin-top: 10px; 
+    }
+
+    .exercise-item {
+        width: 100%; 
+        margin: 10px 0; 
+        padding: 10px;
+    }
+
+    .exercise-name {
+        font-size: 20px; 
+    }
+
+    .exercise-description {
+        font-size: 14px; 
+    }
+
+    .back-link {
+        margin-top: 10px; 
+    }
+}
+/* ##################### fitness ########################## */
+
+
+.fitness-title {
+    font-size: 32px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+
+.fitness-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fitness-item {
+    background-color: #00000069;
+    border: 1px solid #82EF92;
+    box-shadow: 0 4px 6px rgba(255, 253, 253, 0.5);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.fitness-item:hover {
+    transform: scale(1.05);
+}
+
+.fitness-link {
+    text-decoration: none;
+    margin: 10px;
+    text-align: center;
+    display: block;
+    color: white;
+}
+
+.fitness-image {
+    width: 150px;
+    height: 100px;
+    margin: 5px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(255, 253, 253, 0.5);
+}
+
+.fitness-name {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .fitness-title {
+        font-size: 24px; 
+        margin-top: 10px; 
+    }
+
+    .fitness-item {
+        width: 100%; 
+        margin: 10px 0; 
+        padding: 10px; 
+    }
+
+    .fitness-name {
+        font-size: 18px; 
+    }
+}
+/* ##################### fitness details ########################## */
+
+h1.fitness-item-title {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+
+.fitness-item-image {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(255, 253, 253, 0.5);
+}
+
+
+.fitness-item-description {
+    font-size: 16px;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.581);
+    box-shadow: 0 2px 4px rgba(255, 253, 253, 0.5);
+    border: 1px solid #82EF92;
+}
+
+
+@media (max-width: 768px) {
+    h1.fitness-item-title {
+        font-size: 24px; 
+        margin-top: 10px; 
+    }
+
+    .fitness-item-image {
+        max-width: 100%; 
+        margin: 10px auto; 
+    }
+
+    .fitness-item-description {
+        font-size: 14px; 
+        padding: 10px; 
+    }
+}
+/* ##################### index ########################## */
+
+
+.falling-shapes-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+}
+
+
+
+.falling-shape {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: fall linear;
+}
+
+.falling-shape.circle {
+    border-radius: 50%;
+}
+
+.falling-shape.square {
+    border-radius: 0;
+}
+
+.falling-shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid transparent;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(calc(100vh + 20px));
+    }
+}
+
+#form{
+    color: white;
+    text-align: center;
+}
+#form span{
+    color: #82EF92;
+    font-weight: bold;
+    font-size: larger;
+}
+
+/* ##################### help page ########################## */
+
+.form-help {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #82EF92;
+    background-color: rgba(0, 0, 0, 0.579);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.formHelp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; 
+}
+
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.help {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: transparent; 
+    color: white;
+}
+
+
+.btnhelp {
+    background-color: #82EF92;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+
+.btnhelp:hover {
+    background-color: black;
+    color: #82EF92;
+}
+
+.link-home{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link-home a{
+    text-decoration: none;
+    color: #82EF92;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.5s ease;
+}
+
+.link-home a:hover{
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .form-help {
+        max-width: 100%; 
+        padding: 15px; 
+    }
+
+    .help {
+        font-size: 14px;
+    }
+
+    .btnhelp {
+        font-size: 14px; 
+    }
+}
+
+
+/* ########################### footer  ###########################*/
+
+
+.main1{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main2{
+    flex-grow: 1;
+
+}
+
+footer {
+    width: 100%;
+    background-color: #333; 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px 0; 
+}
+
+
+footer p {
+    font-size: 18px;
+    margin: 0; 
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 10px 0; 
+    }
+
+    footer p {
+        font-size: 16px; 
+    }
+}

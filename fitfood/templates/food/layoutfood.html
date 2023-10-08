@@ -1,0 +1,84 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FitFood{% endblock %}</title>
+    <link href="{% static 'food/styles.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
+</head>
+<body>
+
+
+    <nav class="navbar">
+
+        <h1 class="icon"><FitFood class="fas fa-utensils"> FitFood</i></h1>
+        <div>
+            <ul class="nav-list">
+                {% if user.is_authenticated %}
+                <li >
+                    <a  href="{% url 'homefood' %}">Home</a>
+                </li>
+                <li >
+                    <a  href="{% url 'recommended' %}">Recommended</a>
+                </li>
+                
+                
+                <li class="logout">
+                    <a  href="{% url 'logoutfood' %}">Log out</a>
+                </li>
+                {% else %}
+                <li >
+                    <a  href="{% url 'loginfood' %}">Log in </a>
+                </li>
+                <li >
+                    <a  href="{% url 'registerfood' %}">Register</a>
+                </li>
+                {% endif %}    
+
+            </ul>
+        </div>
+    </nav>
+    
+    
+    
+    
+    
+    <div class="main1" >
+        <div class="main2" >
+            
+            {% block body %}
+    
+            {% endblock %}
+        </div>
+    </div>
+    
+
+        <footer>
+
+                <p>&copy; 2023 FitCamp, All rights reserved.</p>
+
+        </footer>
+    
+
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    let currentUrl = window.location.pathname;
+    let links = document.querySelectorAll(".nav-list a");
+
+    for (let link of links) {
+        if (link.getAttribute("href") === currentUrl) {
+            link.classList.add("active");
+        }
+    }
+});
+    </script>
+</body>
+</html>
